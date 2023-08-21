@@ -1,2 +1,2 @@
-# third_next
+# Next JS Laboratory
  
