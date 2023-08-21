@@ -1,2 +1,2 @@
-# Next JS Laboratory
+# Next React Lab
  
