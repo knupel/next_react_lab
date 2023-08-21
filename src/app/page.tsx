@@ -8,10 +8,10 @@ export default function Page() {
   }
   return <>
     <div style={style}>
-      <Link href="/other">{"Alien"}</Link>
+      <Link href="/database">{"tableau base de donnée"}</Link>
       <Link href="/test_layout">{"Parent"}</Link>
       <Link href="/test_layout/child_layout">{"Child"}</Link>
     </div>
-    <h1>Salut Knupel. Allez aux suivants !!!</h1>
+    <h1>Laboratoire Next JS</h1>
   </>
 }
