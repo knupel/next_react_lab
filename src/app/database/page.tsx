@@ -32,7 +32,7 @@ export default function Database() {
     e.preventDefault()
     const body = { name, family, age, mythic, select }
     try {
-      const response = await fetch('/api/inquiry', {
+      const response = await fetch('/api/animal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)

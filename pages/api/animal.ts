@@ -4,13 +4,13 @@ const prisma = new PrismaClient();
 
 export default async function handler(req:any, res:any) {
   if(req.method === 'POST') {
-    return await createInquiry(req, res)
+    return await create_inquiry(req, res)
   } else {
     return res.status(405).json({message: 'Method not allowed', succes:false})
   }
 }
 
-async function createInquiry(req:any, res:any) {
+async function create_inquiry(req:any, res:any) {
   const body = req.body
   try {
     const newEntry = await prisma.inquiry.create({
