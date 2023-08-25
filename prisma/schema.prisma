@@ -14,6 +14,7 @@ datasource db {
 }
 
 
+// HERE it's tables Name, in this case it's Inquiry
 model Inquiry {
   id      Int   @default(autoincrement()) @id
   name    String
