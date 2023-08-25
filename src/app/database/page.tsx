@@ -46,6 +46,8 @@ export default function Database() {
         console.log('form submitted successfully !!!')
         //set a success banner here
       }
+      console.log("response", response);
+      console.log("response.status", response.status);
       //check response, if success is false, dont take them to success page
     } catch (error) {
       console.log('there was an error submitting', error)
