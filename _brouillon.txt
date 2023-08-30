@@ -1,0 +1,3 @@
+"postinstall": "prisma generate",
+"prestart": "prisma generate"
+"preinstall": "prisma generate"

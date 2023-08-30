@@ -17,6 +17,7 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "next": "latest",
+    "prisma": "^5.2.0",
     "react": "latest",
     "react-dom": "latest"
   },
