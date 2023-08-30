@@ -14,10 +14,10 @@
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
-    "@mui/icons-material": "latest",
-    "@mui/material": "latest",
+    "@mui/icons-material": "^5.14.7",
+    "@mui/material": "^5.14.7",
+    "@prisma/client": "^5.2.0",
     "next": "latest",
-    "prisma": "^5.2.0",
     "react": "latest",
     "react-dom": "latest"
   },
