@@ -16,6 +16,8 @@ import Switch, { SwitchProps } from '@mui/material/Switch';
 import styled from '@emotion/styled';
 import FormGroup from '@mui/material/FormGroup';
 import Button from '@mui/material/Button';
+// THEME DEFAULT
+import { useTheme } from '@mui/material/styles';
 
 
 
@@ -42,9 +44,10 @@ const SwitchLegendary = styled((props: SwitchProps) => (
     transitionDuration: '300ms',
     '&.Mui-checked': {
       transform: 'translateX(16px)',
-      color: '#fff',
+      color: 'yellow',
       '& + .MuiSwitch-track': {
-        backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
+        backgroundColor: 'magenta',
+        // backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
         opacity: 1,
         border: 0,
       },
@@ -53,17 +56,16 @@ const SwitchLegendary = styled((props: SwitchProps) => (
       },
     },
     '&.Mui-focusVisible .MuiSwitch-thumb': {
-      color: '#33cf4d',
+      // color: '#33cf4d',
       border: '6px solid #fff',
     },
     '&.Mui-disabled .MuiSwitch-thumb': {
-      color:
-        theme.palette.mode === 'light'
-          ? theme.palette.grey[100]
-          : theme.palette.grey[600],
+      // color: theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[600],
+      color: 'grey'
     },
     '&.Mui-disabled + .MuiSwitch-track': {
-      opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
+      opacity: 0.7,
+      // opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
     },
   },
   '& .MuiSwitch-thumb': {
@@ -73,11 +75,12 @@ const SwitchLegendary = styled((props: SwitchProps) => (
   },
   '& .MuiSwitch-track': {
     borderRadius: 26 / 2,
-    backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+    backgroundColor: '#E9E9EA',
+    // backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
     opacity: 1,
-    transition: theme.transitions.create(['background-color'], {
-      duration: 500,
-    }),
+    // transition: theme.transitions.create(['background-color'], {
+    //   duration: 500,
+    // }),
   },
 }));
 
