@@ -1,4 +1,7 @@
+// REACT
 import * as React from 'react';
+
+// NEXT
 import Document, {
   Html,
   Head,
@@ -9,9 +12,18 @@ import Document, {
 } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import { AppType } from 'next/app';
+
+// MUI
+
+// APP GLOBAL
 import theme, { roboto } from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
 import { MyAppProps } from './_app';
+
+// APP LOCAL
+
+
+
 
 interface MyDocumentProps extends DocumentProps {
   emotionStyleTags: JSX.Element[];
@@ -19,8 +31,8 @@ interface MyDocumentProps extends DocumentProps {
 
 export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
   const style = {
-    background: "magenta",
-    color: "purple",
+    background: theme.palette.primary.main,
+    color: theme.palette.secondary.light,
     fontFamily : "sans-serif",
   }
   

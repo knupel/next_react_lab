@@ -4,12 +4,20 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+// APP GLOBAL
+import theme from '../src/theme';
 
-const menu = [['Accueil', '/'], ['à propos', '/about'], ['Database', '/database']];
+const menu = [['Accueil', '/'], ['à propos', '/about'], ['Database', '/database'], ['compte', '/connect']];
 
 
-const ButtonCustom = styled(Button) ({
-  textTransform: 'none'
+const ButtonMenu = styled(Button) ({
+  // textTransform: 'none',
+  background: 'yellow', color: 'magenta', display: 'block',
+  '&:hover': {
+    transitionDuration: '800ms',
+    color: theme.palette.primary.dark, 
+    background: theme.palette.secondary.light,
+  }
 });
 
 /**
@@ -30,13 +38,13 @@ export function Menu() {
         {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}> */}
 
                   {menu.map((elem) => (
-                    <ButtonCustom
+                    <ButtonMenu
                       key={elem[0]}
                       href={elem[1]}
-                      sx={{ my: 1, background: 'yellow', color: 'magenta', display: 'block' }}
+                      sx={{ my: 1 }}
                     >
                       {elem[0]}
-                    </ButtonCustom>
+                    </ButtonMenu>
                   ))}
         </Box>
       </Container>

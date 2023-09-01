@@ -1,9 +1,16 @@
+// REACT
 import * as React from 'react';
-import clsx from 'clsx';
 import { useRouter } from 'next/router';
+
+// NEXT
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
+
+// MUI
 import MuiLink, { LinkProps as MuiLinkProps } from '@mui/material/Link';
 import { styled } from '@mui/material/styles';
+
+// OTHER
+import clsx from 'clsx';
 
 // Add support for the sx prop for consistency with the other branches.
 const Anchor = styled('a')({});

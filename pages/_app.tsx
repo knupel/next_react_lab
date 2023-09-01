@@ -1,5 +1,4 @@
 // REACT
-// import * as React from 'react';
 import type { ReactElement, ReactNode } from 'react'
 // MUI
 import { ThemeProvider } from '@mui/material/styles';
@@ -35,7 +34,7 @@ export default function MyApp(props: MyAppProps) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return getLayout(
-      <CacheProvider value={emotionCache}>
+    <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
@@ -45,20 +44,7 @@ export default function MyApp(props: MyAppProps) {
         <Component {...pageProps} />
       </ThemeProvider>
     </CacheProvider>
-    )
-
-  // return (
-  //   <CacheProvider value={emotionCache}>
-  //     <Head>
-  //       <meta name="viewport" content="initial-scale=1, width=device-width" />
-  //     </Head>
-  //     <ThemeProvider theme={theme}>
-  //       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-  //       <CssBaseline />
-  //       <Component {...pageProps} />
-  //     </ThemeProvider>
-  //   </CacheProvider>
-  // );
+  )
 }
 
 

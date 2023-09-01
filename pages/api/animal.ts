@@ -10,6 +10,17 @@ export default async function handler(req:any, res:any) {
   }
 }
 
+// https://daily.dev/blog/nextjs-with-prisma
+// export async function get_static_props() {
+//   // Get all foods in the "food" db
+//   const elems = await prisma.inquiry.findMany();
+//   console.log("elems", elems);
+
+//   return {
+//     props: elems,
+//   };
+// }
+
 async function create_inquiry(req:any, res:any) {
   const body = req.body
   try {

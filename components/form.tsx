@@ -7,19 +7,216 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
-import styled from '@emotion/styled';
 import FormGroup from '@mui/material/FormGroup';
 import Button from '@mui/material/Button';
-// THEME DEFAULT
-import { useTheme } from '@mui/material/styles';
+
+// EMOTION
+import styled from '@emotion/styled';
+
+// APP GLOBAL
+import theme from '../src/theme';
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// FORM CONNEXION / LOGIN / REGISTER
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
 
 
+const ButtonSubmit = styled(Button) ({
+  // textTransform: 'none',
+  color: theme.palette.secondary.light, 
+  background: theme.palette.primary.main,
+
+  '&:hover': {
+    transitionDuration: '800ms',
+    background: theme.palette.primary.dark, 
+  }
+});
+
+// https://planetscale.com/blog/nextjs-netlify-planetscale-starter-app#the-planetscale-next-js-starter-app
+
+/////////////////////
+// REGISTER
+////////////////
+function check_register_send(first_name: string, family_name:string, pseudo:string, email: string,  password: string) {
+  if(first_name.length < 6) {
+    return false;
+  }
+
+  if(family_name.length < 6) {
+    return false;
+  }
+
+  if(email.length < 6) {
+    return false;
+  }
+
+  if(pseudo.length < 6) {
+    return false;
+  }
+
+  if(password.length < 6) {
+    return false;
+  }
+  return true;
+}
+
+
+
+export function RegisterForm() {
+  const [first_name, set_first_name] = useState('');
+  const [family_name, set_family_name] = useState('');
+  const [email, set_email] = useState('');
+  const [pseudo, set_pseudo] = useState('');
+  const [password, set_password] = useState('');
+
+  const handle_submit = async (e:any) => {
+    e.preventDefault();
+    console.log("submit your login registration");
+  }
+
+  const handle_change_first_name = (event: any) => {
+    set_first_name(event.target.value as string);
+  };
+
+  const handle_change_family_name = (event: any) => {
+    set_family_name(event.target.value as string);
+  };
+
+  const handle_change_email = (event: any) => {
+    set_email(event.target.value as string);
+  };
+
+  const handle_change_pseudo = (event: any) => {
+    set_pseudo(event.target.value as string);
+  };
+
+  const handle_change_password = (event: any) => {
+    set_password(event.target.value as string);
+  };
+
+
+  return <>
+    <form action="#" method="POST" onSubmit={(e) => handle_submit(e)}>
+      {/* <Container maxWidth="sm"> */}
+        <Box sx={{ p:2, bgcolor: theme.palette.secondary.light, margin: 3, borderRadius: 5, border: 5, borderColor: 'purple'}}>
+          {/* title */}
+          <Box sx={{p:1, maxWidth: 190, color: theme.palette.primary.main}}>Créez votre compte</Box>
+          {/* first name */}
+          <Box sx={{p:1}}>
+            <TextField id="firstname" label="Prénom" variant="outlined" value={first_name} onChange={handle_change_first_name}/>
+          </Box>
+          {/* family name */}
+          <Box sx={{p:1}}>
+            <TextField id="familyname" label="Nom" variant="outlined" value={family_name} onChange={handle_change_family_name}/>
+          </Box>
+          {/* email */}
+          <Box sx={{p:1}}>
+            <TextField id="email" label="Courriel" variant="outlined" value={email} onChange={handle_change_email}/>
+          </Box>
+          {/* pseudo */}
+          <Box sx={{p:1}}>
+            <TextField id="name" label="Pseudo" variant="outlined" value={pseudo} onChange={handle_change_pseudo}/>
+          </Box>
+          {/* password */}
+          <Box sx={{p:1}}>
+            <TextField id="password" label="Mot de passe" variant="outlined" value={password} onChange={handle_change_password}/>
+          </Box>
+          {/* submit */}
+          <Box sx={{p:1}}>
+            {check_login_send(pseudo, password) === false ? <ButtonSubmit >au moins six caractères</ButtonSubmit> : <ButtonSubmit type='submit'>validez</ButtonSubmit>} 
+          </Box>
+        </Box>
+      {/* </Container> */}
+    </form>
+  </>
+}
+
+
+
+
+/////////////////////
+// LOGIN
+////////////////
+function check_login_send(pseudo:string, password: string) {
+  if(pseudo.length < 6) {
+    return false;
+  }
+  if(password.length < 6) {
+    return false;
+  }
+  return true;
+}
+
+
+
+export function LoginForm() {
+  const [pseudo, set_pseudo] = useState('');
+  const [password, set_password] = useState('');
+
+  const handle_submit = async (e:any) => {
+    e.preventDefault();
+    console.log("submit your login registration");
+  }
+
+  const handle_change_pseudo = (event: any) => {
+    set_pseudo(event.target.value as string);
+  };
+
+  const handle_change_password = (event: any) => {
+    set_password(event.target.value as string);
+  };
+
+
+  return <>
+    {/* <CssBaseline /> */}
+      <form action="#" method="POST" onSubmit={(e) => handle_submit(e)}>
+        {/* <Container maxWidth="sm"> */}
+          <Box sx={{ p:2, bgcolor: theme.palette.secondary.light, margin: 3, borderRadius: 5, border: 5, borderColor: 'purple'}}>
+            {/* title */}
+            <Box sx={{p:1, maxWidth: 190, color: theme.palette.primary.main}}>Entrez votre pseudo et mot de passe</Box>
+            {/* pseudo */}
+            <Box sx={{p:1}}>
+              <TextField id="pseuod" label="Pseudo" variant="outlined" value={pseudo} onChange={handle_change_pseudo}/>
+            </Box>
+            {/* password */}
+            <Box sx={{p:1}}>
+              <TextField id="password" label="Mot de passe" variant="outlined" value={password} onChange={handle_change_password}/>
+            </Box>
+            {/* submit */}
+            <Box sx={{p:1}}>
+              {check_login_send(pseudo, password) === false ? <ButtonSubmit >au moins six caractères</ButtonSubmit> : <ButtonSubmit type='submit'>validez</ButtonSubmit>} 
+            </Box>
+          </Box>
+        {/* </Container> */}
+      </form>
+    </>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// FORM DATABASE
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
 
 // FAMILLE DICTIONNAIRE
 const family_list = [
@@ -31,10 +228,26 @@ const family_list = [
   'oiseau',
 ];
 
+// CHECK
+function check_data_before_send(name:string, family: string, age:number) {
+  if(name.length < 1) {
+    return false;
+  }
+
+  if(family.length < 1) {
+    return false;
+  }
+
+  if(age < 1) {
+    return false;
+  }
+  return true;
+}
+
 // SWITCH LEGENDAIRE
 const SwitchLegendary = styled((props: SwitchProps) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
-))(({ theme }) => ({
+))(() => ({
   width: 42,
   height: 26,
   padding: 0,
@@ -44,7 +257,7 @@ const SwitchLegendary = styled((props: SwitchProps) => (
     transitionDuration: '300ms',
     '&.Mui-checked': {
       transform: 'translateX(16px)',
-      color: 'yellow',
+      color: theme.palette.secondary.light,
       '& + .MuiSwitch-track': {
         backgroundColor: 'magenta',
         // backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
@@ -108,13 +321,14 @@ export function AddAnimalForm() {
   };
 
   const handle_change_mythic = (event: any) => {
-    console.log("mythic",event.target.checked);
+    // console.log("mythic",event.target.checked);
     set_mythic(event.target.checked as boolean);
   };
 
-  const handle_submit = async (e:any) => {
-    e.preventDefault()
-    const body = { name, family, age, mythic, boolean:false }
+  const handle_submit = async (event:any) => {
+    event.preventDefault();
+    let select:boolean = false;
+    const body = { name, family, age, mythic, select }
     try {
       const response = await fetch('/api/animal', {
         method: 'POST',
@@ -147,12 +361,12 @@ export function AddAnimalForm() {
 
   return (
     <>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <form action="#" method="POST" onSubmit={(e) => handle_submit(e)}>
-        <Container maxWidth="sm">
-          <Box sx={{ p:2, bgcolor: 'yellow', margin: 3, borderRadius: 5, border: 5, borderColor: 'purple'}}>
+        {/* <Container maxWidth="sm"> */}
+          <Box sx={{ p:2, bgcolor: theme.palette.secondary.light, margin: 3, borderRadius: 5, border: 5, borderColor: 'purple'}}>
             {/* title */}
-            <Box sx={{p:1, maxWidth: 190}}>Créez votre créature</Box>
+            <Box sx={{p:1, color: theme.palette.primary.main, maxWidth: 190}}>Créez votre créature</Box>
             {/* name */}
             <Box sx={{p:1}}>
               <TextField id="name" label="Nom de la bête" variant="outlined" value={name} onChange={handle_change_name}/>
@@ -189,28 +403,13 @@ export function AddAnimalForm() {
             </Box>
             {/* submit */}
             <Box sx={{p:1}}>
-              {check_data_before_send(name, family, age) === false ? <Button >Ceci n'est pas une bête</Button> : <Button type='submit'>envoyer la bête</Button>}
-              
+              {check_data_before_send(name, family, age) === false ? <ButtonSubmit >Ceci n'est pas une bête</ButtonSubmit> : <ButtonSubmit type='submit'>envoyer la bête</ButtonSubmit>}
             </Box>
           </Box>
-        </Container>
+        {/* </Container> */}
       </form>
     </>
   );
 }
 
 
-function check_data_before_send(name:string, family: string, age:number) {
-  if(name.length < 1) {
-    return false;
-  }
-
-  if(family.length < 1) {
-    return false;
-  }
-
-  if(age < 1) {
-    return false;
-  }
-  return true;
-}

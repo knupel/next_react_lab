@@ -1,31 +1,21 @@
-"use client";
-import { useState } from "react";
+// "use client";
+// import { useState } from "react";
 // import Link from 'next/link';
 import type { ReactElement } from 'react'
-import { PrismaClient } from '@prisma/client'
+// import { PrismaClient } from '@prisma/client'
 
-// APP
+// APP GLOBAL
 import type { NextPageWithLayout } from './_app';
 import Layout from '../components/layout';
+// APP PARTICULAR
 import { AddAnimalForm } from '../components/form';
 
-// CALL DATA
-const prisma = new PrismaClient();
+// import get_static_props from './api/animal';
 
-// https://nextjs.org/docs/app/building-your-application/data-fetching/patterns
-async function getData() {
-  const res = await fetch('https://nextreactlab.netlify.app/api/animal')
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  console.log("res", res);
-  return res.json()
-}
- 
-export async function GetData() {
-  const data = await getData(); 
-  return <>{data}</>
-}
+// CALL DATA
+// const prisma = new PrismaClient();
+
+
 
 
 
@@ -39,6 +29,7 @@ export async function GetData() {
 // BUILD FINAL
 ////////////////
 const Page: NextPageWithLayout = () => {
+  // console.log(get_static_props());
   return <>
     <AddAnimalForm/>
     {/* <GetData/> */}
