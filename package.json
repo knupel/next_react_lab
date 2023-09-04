@@ -16,8 +16,10 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "@next-auth/prisma-adapter": "latest",
     "@prisma/client": "latest",
     "next": "latest",
+    "next-connect": "latest",
     "react": "latest",
     "react-dom": "latest"
   },

@@ -7,11 +7,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 // APP
-import Link from '../src/Link';
 import ProTip from '../src/ProTip';
 import Copyright from '../src/Copyright';
 import type { NextPageWithLayout } from './_app'
-import Layout from '../components/layout'
+import { Layout } from '../components/hc'
 
 
 

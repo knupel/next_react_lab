@@ -6,11 +6,8 @@
 // import * as React from 'react';
 import type { ReactElement } from 'react'
 // APP
-import Link from '../src/Link';
-import ProTip from '../src/ProTip';
-import Copyright from '../src/Copyright';
 import type { NextPageWithLayout } from './_app'
-import Layout from '../components/layout'
+import { Layout }  from '../components/hc'
 
 // https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts#layout-pattern
 

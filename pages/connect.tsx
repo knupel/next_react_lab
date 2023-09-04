@@ -7,17 +7,14 @@ import { Box, Button, Container } from '@mui/material';
 import styled from '@emotion/styled';
 // APP GLOBAL
 import type { NextPageWithLayout } from './_app';
-import Layout from '../components/layout';
 import theme from '../src/theme';
 // APP PARTICULAR
-import { LoginForm, RegisterForm } from '../components/form';
+import { Layout, LoginForm, RegisterForm } from '../components/hc';
 
 
 
 const ButtonConnect = styled(Button) ({
   // textTransform: 'none',
-  // p:2,
-  // margin:3,
   background: theme.palette.secondary.light, 
   color: theme.palette.primary.main,
   '&:hover': {

@@ -4,22 +4,23 @@ import prisma from "@db";
 
 export default async function handler(req:any, res:any) {
   if(req.method === 'POST') {
-    return await create_inquiry(req, res)
+    return await create_user(req, res)
   } else {
     return res.status(405).json({message: 'Method not allowed', succes:false})
   }
 }
 
-async function create_inquiry(req:any, res:any) {
+async function create_user(req:any, res:any) {
   const body = req.body
   try {
-    const newEntry = await prisma.inquiry.create({
+    const newEntry = await prisma.user.create({
       data: {
-        name: body.name,
-        family: body.family,
-        age: body.age,
-        mythic: body.mythic,
-        select: body.select,
+        first_name: body.first_name,
+        family_name: body.family_name,
+        email: body.email,
+        role: body.role,
+        pseudo: body.pseudo,
+        password: body.password,
       }
     })
     return res.status(200).json(newEntry, { success: true })

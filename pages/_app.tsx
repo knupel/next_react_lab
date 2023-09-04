@@ -1,5 +1,5 @@
 // REACT
-import type { ReactElement, ReactNode } from 'react'
+import type { ReactElement, ReactNode } from 'react';
 // MUI
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,21 +16,20 @@ import createEmotionCache from '../src/createEmotionCache';
 const clientSideEmotionCache = createEmotionCache();
 
 
-// LAYOUT PART
-///////////////
+
+// AUTH & LAYOUT PART
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
 }
 
-// EMOTION PART
-////////////////
+// A
 export interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
   Component: NextPageWithLayout
 }
 
 export default function MyApp(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const { Component, emotionCache = clientSideEmotionCache, pageProps: { session, ...pageProps } } = props;
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return getLayout(

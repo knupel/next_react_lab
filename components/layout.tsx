@@ -13,7 +13,7 @@ import { Menu } from "./menu";
 
 
 // https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts#layout-pattern
-export default function Layout({ children } : {children: ReactNode}) {
+export function Layout({ children } : {children: ReactNode}) {
 
   const style = {
     background: theme.palette.primary.main,
